@@ -1,0 +1,44 @@
+{
+  "name": "get-streetview-panorama-id-cli",
+  "version": "0.1.0",
+  "description": "Get the panorama ID as from Street View or Photo Sphere url in the terminal",
+  "bin": {
+    "get-streetview-panorama-id": "cli.js"
+  },
+  "repository": "dorianneto/get-streetview-panorama-id-cli",
+  "scripts": {
+    "test": "ava"
+  },
+  "author": {
+    "name": "Dorian Neto",
+    "email": "doriansampaioneto@gmail.com",
+    "url": "dorianneto.com.br"
+  },
+  "keywords": [
+    "google",
+    "maps",
+    "pano",
+    "panorama",
+    "streetview",
+    "photosphere",
+    "id",
+    "embed",
+    "terminal",
+    "cli"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "execa": "^0.4.0"
+  },
+  "ava": {
+    "files": [
+      "test/*.js"
+    ]
+  },
+  "dependencies": {
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
+    "get-streetview-panorama-id": "^0.2.1"
+  }
+}
