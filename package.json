@@ -1,9 +1,9 @@
 {
   "name": "get-streetview-panorama-id-cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Get the panorama ID as from Street View or Photo Sphere url in the terminal",
   "bin": {
-    "get-streetview-panorama-id": "cli.js"
+    "get-streetview-panorama-id": "get-streetview-panorama-id.js"
   },
   "repository": "dorianneto/get-streetview-panorama-id-cli",
   "scripts": {
