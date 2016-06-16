@@ -1,62 +1,62 @@
 #!/usr/bin/env node
 'use strict';
 const program = require('commander')
-		, colors = require('colors')
-		, get_streetview_panorama_id = require('get-streetview-panorama-id');
+    , colors = require('colors')
+    , get_streetview_panorama_id = require('get-streetview-panorama-id');
 
 function main() {
-	var message
-		, inputURL
-		, getID
-		, getEmbed;
+  var message
+    , inputURL
+    , getID
+    , getEmbed;
 
-	program
-		.arguments('<url>')
-		.action(function(url) {
-			inputURL = url;
-		});
+  program
+    .arguments('<url>')
+    .action(function(url) {
+      inputURL = url;
+    });
 
-	program
-		.option('-e, --embed', 'Get URL to embed')
+  program
+    .option('-e, --embed', 'Get URL to embed')
 
-	program.on('--help', function() {
-		console.log('  Examples:');
-		console.log('');
-		console.log('  $ get-streetview-panorama-id https://www.google.com/maps/contrib/10220346527048...');
-		console.log('  $ get-streetview-panorama-id -e https://www.google.com/maps/contrib/10220346527048...');
-	});
+  program.on('--help', function() {
+    console.log('  Examples:');
+    console.log('');
+    console.log('  $ get-streetview-panorama-id https://www.google.com/maps/contrib/10220346527048...');
+    console.log('  $ get-streetview-panorama-id -e https://www.google.com/maps/contrib/10220346527048...');
+  });
 
-	program.parse(process.argv);
+  program.parse(process.argv);
 
-	if (typeof inputURL === 'undefined') {
-		console.log('');
-		console.log('   URL not found!'.red);
-		process.exit();
-	}
+  if (typeof inputURL === 'undefined') {
+    console.log('');
+    console.log('   URL not found!'.red);
+    process.exit();
+  }
 
-	console.log('');
+  console.log('');
 
-	getID = get_streetview_panorama_id(inputURL);
+  getID = get_streetview_panorama_id(inputURL);
 
-	if (getID === 'URL incorrect') {
-		console.log('   ' + getID.red);
-		process.exit();
-	}
+  if (getID === 'URL incorrect') {
+    console.log('   ' + getID.red);
+    process.exit();
+  }
 
-	message = '   Copy the panorama ID: ' + getID.underline;
+  message = '   Copy the panorama ID: ' + getID.underline;
 
-	if (program.embed) {
-		getEmbed = get_streetview_panorama_id(inputURL, {embed: true});
+  if (program.embed) {
+    getEmbed = get_streetview_panorama_id(inputURL, {embed: true});
 
-		if (getEmbed === 'Expected an object') {
-			console.log('   ' + getEmbed.red);
-			process.exit();
-		}
+    if (getEmbed === 'Expected an object') {
+      console.log('   ' + getEmbed.red);
+      process.exit();
+    }
 
-		message = '   Copy the embed url: ' + getEmbed.underline;
-	}
+    message = '   Copy the embed url: ' + getEmbed.underline;
+  }
 
-	console.log(message);
+  console.log(message);
 };
 
 main();
