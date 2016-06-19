@@ -36,22 +36,23 @@ function main() {
 
   console.log("");
 
-  getID = getStreetViewPanoramaId(inputURL);
+  getID = getStreetViewPanoramaId({url: inputURL});
 
-  if (getID === "Incorrect URL") {
-    console.log("   " + getID.red);
-    process.exit();
+  switch (getID) {
+    case "Expected an object":
+    case "Incorrect URL":
+      console.log("   " + getID.red);
+      process.exit();
+    break;
   }
 
   message = "   Copy the panorama ID: " + getID.underline;
 
   if (program.embed) {
-    getEmbed = getStreetViewPanoramaId(inputURL, {embed: true});
-
-    if (getEmbed === "Expected an object") {
-      console.log("   " + getEmbed.red);
-      process.exit();
-    }
+    getEmbed = getStreetViewPanoramaId({
+      url: inputURL,
+      embed: true
+    });
 
     message = "   Copy the embed url: " + getEmbed.underline;
   }

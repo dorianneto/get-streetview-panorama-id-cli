@@ -1,6 +1,6 @@
 {
   "name": "get-streetview-panorama-id-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Get the panorama ID as from Street View or Photo Sphere url in the terminal",
   "bin": {
     "get-streetview-panorama-id": "get-streetview-panorama-id.js"
@@ -39,6 +39,6 @@
   "dependencies": {
     "colors": "^1.1.2",
     "commander": "^2.9.0",
-    "get-streetview-panorama-id": "^0.2.1"
+    "get-streetview-panorama-id": "1.*"
   }
 }
