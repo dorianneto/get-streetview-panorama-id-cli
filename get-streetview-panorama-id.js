@@ -38,7 +38,7 @@ function main() {
 
   getID = getStreetViewPanoramaId(inputURL);
 
-  if (getID === "URL incorrect") {
+  if (getID === "Incorrect URL") {
     console.log("   " + getID.red);
     process.exit();
   }
